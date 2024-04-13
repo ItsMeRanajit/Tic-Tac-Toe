@@ -1,0 +1,28 @@
+git is a version control system that tracks the changes of the code.
+it is fast and scalable
+it also helps in collaboration works i.e. multiple people working on same project .
+\*\* readme.md - md is markdown
+
+\*\* making a change final is known as commit
+make a change , final the changes
+
+commands--
+
+// to change name - open fitbash and put git config --global user.name = "name"
+
+// to change email - just user.email = "email"
+
+// to make a clone of any github repo in my system-
+git clone link
+(it copies repos from github in the current folder of your system)
+
+//git status - gives the status of the file
+// has 4 status
+
+1. untracked = new files that git does not know yet
+2. modified = changed
+3. staged = file is ready to be commited
+4. unmodified = unchanged
+
+//git add = adds working file to the stage of git
+//hi
