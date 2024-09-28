@@ -1,0 +1,47 @@
+body {
+  height: 120vh;
+}
+.container {
+  padding: 50px;
+}
+.msg {
+  font-size: 25px;
+  top: 70px;
+}
+.show_win {
+  scale: 1.2;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid black; */
+}
+h1 {
+  font-size: 32px;
+  margin: 20px;
+  margin-bottom: 10px;
+}
+#choose {
+  font-size: 23px;
+}
+#rock,
+#paper,
+#scissors {
+  width: 70px;
+}
+#comp_choose {
+  height: 60px;
+}
+#comp_choose img {
+  width: 80px;
+}
+#score {
+  gap: 1rem;
+  font-size: 25px;
+}
+#btn {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  margin: 70px auto;
+}

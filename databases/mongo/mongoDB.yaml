@@ -1,0 +1,236 @@
+mongoDB is NOSql
+
+mongo db stores data like a js object.
+
+mongo db consits a database in which it  contains collections and collections contains documents
+
+documents are the thing that holds the datas 
+
+-> in sql we have database in which we have tables and table contains rows which is a set of data
+-> in mongodb its the same thing -> a database is a db in sql, a collection is a table and row is a documents
+
+-> each document in a collection may not have the same feilds, they can be different which is not possible in sql.
+-> a document(row) can contain student name and roll , other one can store student name and registration no.
+-> it is not bounded like sql.
+-> also mongo db is free of joining concepts like sql so using it is quite easy
+
+
+example of mongo structure ----
+
+DATABASE{ -----
+    COLLECTION 1 {---------
+        DOCUMENT1-
+                {
+                    STUD-name : "RANAJIT"
+                    ROLL : 55
+                },
+        DOCUMENT2 -{...},
+        DOCUMENT3 -{...}, ...
+    }
+    COLLECTION 2 ------
+        {DOCUMENTS....}
+
+    COLLECTION 3------
+}
+
+-> a document is a combination of key value pairs
+
+-> commands ------------------------------------------------------------
+
+----connect-------
+1. to establis connection - mongosh
+2. to exit connection - exit 
+3. show databases - show dbs 
+
+
+
+
+
+
+
+------create--------
+4. create/ switch database - use DBname
+
+5. create collection - go to database - use DBname -> db.
+createCollection("collection name")
+(a database must have a collection)
+
+    5.a. db.createCollections("teachers", {capped : true,size: 10000000000, max: 100},{autoIndexId : false})
+    // creating collection with name "teachers", the next feild is for the declearing size--> capped : true means that the collection has a size constrain, size - 100... means the memory it should take in bytes, it is mandatory when capped is true, max : 100 means the max number of docs in the collection here it is 100, this feild is not mandatory
+    //autoIndexId is a optional feild which auto indexes the feilds
+
+
+    5.b. show collections // to see collections
+
+6. delete/drop databse -go to db -> db.dropDatabase()
+6.a. delete collection - db.collectionName.drop()
+
+
+
+
+
+
+-------insert---------
+7. insert one document - go to collection -> db.collectionName.insertOne({valuse})
+    eg- db.students.insertOne({name : "Ranajit", age : 21, cgpa : 8.56})
+        if(no collection exits of this name, itll create one)
+
+8. insert many docs - db.students.insertMany([{name : "ranajit", age: 21},{name : "hulu", age: 21}])
+
+
+
+
+
+
+-------find---------
+9. show documents - db.student.find()
+
+10. sort - db.students.find().sort({name : 1}) 
+// the name is the feild on what you want to sort the datas. 1 means ascending order and -1 is descending order 
+
+11. finding highest - db.students.find().sort({gpa : -1}).limit(1)
+    //highes gpa, -1 means the highest will be at first bcz itll ordered as descending order and limiting it to 1 value, means only one from 1st 
+
+12. finding perticular value - db.students.find({name: "ranajit"})
+
+13. finding some perticular feilds from em - db.students.find({name: "anisha"},{name: true,gpa:true}) //({query},{projection})
+
+14. getting only a feild of all docs - db.students.find({},{name : true}) 
+// but these will give the ids 
+
+15. to not getting id - db.students.find({},{name: true,_id:false})
+
+
+
+
+
+-----------update--------------
+16. update - school> db.students.updateOne({selction criteria}, {$set:{new value}})
+    eg: school> db.students.updateOne({name : "anisha"}, {$set:{age:21}}) 
+    //if the set feild exists then it updates, if not then creates new one with given value.
+    //there maybe multiple docs of same name of key, to for precise update update with object id - db.students.updateOne({ _id: ObjectId('66d71bf97c629c2395a5e75c')}, {$set:{age:22}})  
+
+17. to unset a feild means delete a key -  db.students.updateOne({name : "anisha"}, {$unset:{}}) // unset has a empty feild
+18. to update many at once - db.students.updateMany({}, {$set :{fulltime :false}})
+    // if the selection criteria is empty it updates all, and if set value not there it creates one
+
+19. if update the given ones - db.students.updateMany({}, {$set :{fulltime :false}})
+
+20. if any value doesnot exists then set it - db.students.updateMany({gpa : {$exists:false}},{$set:{gpa : 7.7}})// here gpa doesnot exist for all. so those dont they got gpa 7.7 and those who has theirs are left same
+
+
+
+
+
+
+
+
+--------delete------------
+21. delete one- db.students.deleteOne({selection criteria})
+    eg. db.students.deleteOne({name:"Shinozaki"})
+
+22.delete Many -  db.students.deleteMany({fulltime:false})
+
+23. delete all docs -  db.students.deleteMany({})
+
+24. delete where something does not exists : db.students.deleteMany({cgpa:{$exists:false}})
+
+
+
+
+
+
+--------operators--------
+25.to get anyone but some value- db.students.find({name:{$ne:"ranajit"}}) // $ne is not equal
+
+26. $lt : less than 
+
+27. $lte : less than equals
+
+28. $gt : greater than
+
+29. $gte : greater than equals
+
+30. $eq : equals
+
+31. we can use multiple operators to find value in certain range - db.students.find({gpa:{$lt:7.8,$gt:7.6}})
+
+32. $in : to find datas in certain values - db.students.find({gpa:{$in:[7.7,7.6,8.6]}}) // every doc will have any gpa in these values, values are mentioned in the array
+
+33. $nin : not in // similar like $in but will give the docs which doesnot have the given val in the array
+ 
+
+
+
+-------logical operators----------
+34.$and : any doc that matches the condition of the array:
+    db.students.find({$and : [{fulltime:false},{age:{$lt:22}}]})
+
+35.$or : any doc that matches any of the condition :
+    db.students.find({$or : [{fulltime:false},{age:{$lt:22}}]})
+
+36.$nor : both condition has to be false 
+    db.students.find({$nor : [{fulltime:false},{age:{$lt:22}}]})
+
+37.$not : it can be written in many ways using comparison operators, but those doesnot consider null values, but not considers null values too
+    db.students.find({$not : {$gte : 30}}) // will give docs with age < 30, also includes null
+
+
+------index------
+indexing is used for quick lookup time, but using this takes more memory and slows down the insert, update and delete opr. so use them wisely. 
+index should be used where too many updates are not done to the db.
+indexes stores the docs as a b tree data structure
+
+---> db.students.createIndex({name : 1}) // indexing will be done on name feilds, 1 means ascending order AB...ab...
+
+get indexes ---> db.students.getIndexes()
+output ----> [
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { name: 1 }, name: 'name_1' } // this is our index on name
+]
+
+delte index ---> db.students.dropIndexes("name_1")
+
+
+----------mongodb users------------
+db.createUser(
+    {
+        user:"ranajit",
+        pwd : "3434355",
+        roles : [
+            {role : "read", db : "school"}
+            {role : "readWrite", db : "school"}
+            {role : "readWrite", db : "teacher"}
+        ]
+    }
+)
+// multiple access permisson can be given to a single user on same db. like read and readwrite on school 
+// and one user can accesss multiple db 
+
+
+->mongodb compass-----------------------------------
+its a visual representation of the databases.
+you can create delete the dbs
+
+
+dataTYPES---
+db.yourCollectionName.insertOne({
+  integer: 32,
+  double: 8.56,
+  string: "Ranajit",
+  boolean: true,
+  date: new Date(),  // Current date and time
+  thisMeans: "Current date",
+  date2: new Date("2024-09-03T00:00:00"),  // Given date and time
+  thisMeans2: "Given date and time, you can add date or time separately",
+  Null: null,
+  arrays: ["holds multiple values", 53, 89, 80, true],
+  nestedDocs: {
+    means: "doc inside a doc",
+    age: 123,
+    isPass: true
+  }w
+});
+mongocompass doesnot excecute new Date
+so use -  "date2": { "$date": "2024-09-03T00:00:00Z" },  for given datetime
+and - "date": { "$date": { "$numberLong": "1693708800000" } }, for current date time

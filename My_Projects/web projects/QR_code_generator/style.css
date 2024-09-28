@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+#main {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#003049, #669bbc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#section {
+  width: 500px;
+  height: 440px;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.632);
+}
+#enter {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  width: 300px;
+}
+#enter p {
+  margin: 5px 0px;
+  font-weight: bold;
+}
+#enter input {
+  width: 290px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#qr {
+  width: 210px;
+  aspect-ratio: 1/1;
+  border: 2px solid rgb(160, 158, 158);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle {
+  width: 20px;
+  margin: 3px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: rgb(160, 158, 158);
+}
+#btn {
+  width: 290px;
+  height: 40px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #045199;
+  color: #ffff;
+  transition: 0.2s all;
+  font-size: 20px;
+}
+#btn:hover {
+  background-color: #045eb1;
+}

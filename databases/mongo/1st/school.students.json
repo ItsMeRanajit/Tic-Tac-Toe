@@ -1,0 +1,133 @@
+[{
+  "_id": {
+    "$oid": "66d71a3ba4d0794ccc2710bc"
+  },
+  "name": "Ranajit",
+  "age": 21,
+  "cgpa": 8.56,
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d71b40a4d0794ccc2710bd"
+  },
+  "name": "ranajit",
+  "age": 21,
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d71b40a4d0794ccc2710be"
+  },
+  "name": "hulu",
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d71bf97c629c2395a5e75c"
+  },
+  "name": "anisha",
+  "age": 22,
+  "gpa": 7.6,
+  "fulltime": true,
+  "isStudent": true
+},
+{
+  "_id": {
+    "$oid": "66d71c5f7c629c2395a5e75e"
+  },
+  "name": "ami",
+  "locatoin": "kolkata",
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d71c5f7c629c2395a5e75f"
+  },
+  "name": "tumi",
+  "bari": "dumdum",
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d72125a4d0794ccc2710bf"
+  },
+  "int": 23,
+  "double": 3.4,
+  "string": "hello",
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d7214ca4d0794ccc2710c0"
+  },
+  "int": 23,
+  "double": 3.4,
+  "string": "hello",
+  "nested": {
+    "means": "ji",
+    "age": 34
+  },
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d722017c629c2395a5e764"
+  },
+  "integer": 32,
+  "double": 8.56,
+  "string": "Ranajit",
+  "boolean": true,
+  "thisMeans": "Current date",
+  "thisMeans2": "given Date and time, you can add date or time separately",
+  "Null": null,
+  "arrays": [
+    "holds multiple values",
+    53,
+    89,
+    80,
+    true
+  ],
+  "nestedDocs": {
+    "means": "doc inside a doc",
+    "age": 123,
+    "isPass": true
+  },
+  "mongoCompass": "does not support new Date",
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d7221ca4d0794ccc2710c1"
+  },
+  "int": 23,
+  "double": 3.4,
+  "string": "hello",
+  "nested": {
+    "means": "ji",
+    "age": 34
+  },
+  "date": {
+    "$date": "2024-09-03T14:50:04.063Z"
+  },
+  "fulltime": false,
+  "gpa": 7.7
+},
+{
+  "_id": {
+    "$oid": "66d7ea56ff80b5f49b476e34"
+  },
+  "name": "Shinozaki",
+  "roll": 11,
+  "moto": "hula hula",
+  "fulltime": false,
+  "gpa": 7.7
+}]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&family=Sixtyfour&family=Workbench&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" media="screen and (max-width:700px)" href="phone.css" />
+    <link rel="stylesheet" media="screen and (max-width:400px)" href="phone2.css" />
+    <title>Stone Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="msg"></div>
+    <div class="container">
+      <div id="choose">
+        Choose -
+        <div id="choices">
+          <div class="box">
+            <img id="rock" src="/My_Projects/JS projects/Stone_paper_scissors/files/rock.png" alt="Rock" />
+          </div>
+          <div class="box">
+            <img id="paper" src="/My_Projects/JS projects/Stone_paper_scissors/files/paper.png" alt="Paper" />
+          </div>
+          <div class="box">
+            <img id="scissors" src="/My_Projects/JS projects/Stone_paper_scissors/files/scissors.png" alt="Scissors" />
+          </div>
+        </div>
+        <div id="comp_choose">Computer-</div>
+      </div>
+      <div id="score">
+        Score :
+        <div id="mine">My - <span id="my"></span></div>
+        <div id="computer">Computer - <span id="comp2"></span></div>
+        <button id="btn">Next Round</button>
+      </div>
+    </div>
+    <audio id="pop" src="/My_Projects/JS projects/Stone_paper_scissors/files/pop copy.mp3"></audio>
+    <audio id="uh" src="/My_Projects/JS projects/Stone_paper_scissors/files/uh!.mp3"></audio>
+    <audio id="win" src="/My_Projects/JS projects/Stone_paper_scissors/files/win.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
