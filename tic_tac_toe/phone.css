@@ -1,0 +1,120 @@
+body {
+  height: 102vh;
+  background: linear-gradient(#b4fec5, #22577a);
+}
+.container h1 {
+  font-size: 45px;
+  /* height: 80vh; */
+}
+.game {
+  margin-top: 60px;
+  padding: 20px;
+  grid-gap: 3px;
+}
+.play {
+  display: none;
+}
+.msg {
+  font-size: 30px;
+  margin-top: 60px;
+  /* scale: 0; */
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: bold;
+  scale: 0;
+  transition: 1s all;
+}
+.openmsg {
+  scale: 1;
+  transition: 1s all;
+}
+.game > .cross:nth-child(10) {
+  top: 60px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h1  */
+.game > .cross:nth-child(11) {
+  top: 155px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h2  */
+.game > .cross:nth-child(12) {
+  top: 248px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h3  */
+.game > .cross:nth-child(13) {
+  top: 20px;
+  left: 26px;
+  animation: extend_corner1 0.3s 0.1s forwards;
+  transform-origin: top left;
+  rotate: 45deg;
+}
+/* c1  */
+.game > .cross:nth-child(14) {
+  top: 15px;
+  left: 152px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v2  */
+.game > .cross:nth-child(15) {
+  top: 15px;
+  left: 246px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v3  */
+.game > .cross:nth-child(16) {
+  top: 27px;
+  left: 286px;
+  animation: extend_corner2 0.3s 0.1s forwards;
+  transform-origin: top right;
+  rotate: 45deg;
+}
+/* c2  */
+.game > .cross:nth-child(17) {
+  top: 15px;
+  left: 60px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v1 */
+
+@keyframes extend_horizontal {
+  from {
+    width: 10px;
+    height: 10px;
+  }
+  to {
+    scale: 1;
+    width: 285px;
+  }
+}
+@keyframes extend_vertical {
+  from {
+    width: 10px;
+    height: 10px;
+  }
+  to {
+    height: 285px;
+    width: 10px;
+  }
+}
+@keyframes extend_corner1 {
+  from {
+    height: 10px;
+    width: 10px;
+  }
+  to {
+    width: 383px;
+  }
+}
+@keyframes extend_corner2 {
+  from {
+    height: 10px;
+    width: 10px;
+  }
+  to {
+    height: 379px;
+  }
+}

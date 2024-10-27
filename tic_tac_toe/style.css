@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  /* background-color: #80ed99; */
+  height: 100vh;
+  background: linear-gradient(to bottom right, #b4fec5, #22577a);
+  text-align: center;
+}
+.container {
+  margin: 30px;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+
+.container h1 {
+  font-size: 75px;
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: bold;
+}
+
+.game {
+  margin-top: 80px;
+  padding: 20px;
+  display: grid;
+  grid-gap: 12px;
+  position: relative;
+  grid-template-columns: repeat(3, 90px);
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+.box {
+  width: 80px;
+  aspect-ratio: 1/1;
+  border: 2px solid darkred;
+  /* border: none; */
+  border-radius: 10px;
+  background-color: #fef268;
+  /* background-color: transparent; */
+  margin: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.622);
+  transition: 0.2s all;
+  font-size: 45px;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+.box2:hover {
+  scale: 0.95;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.703);
+}
+
+#reset {
+  width: 150px;
+  height: 50px;
+  margin: 50px;
+  background-color: #ef896f;
+  font-size: 25px;
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: bold;
+  border: 2px solid darkred;
+  border-radius: 10px;
+  box-shadow: 0px 5px 7px 1px rgba(0, 0, 0, 0.605);
+  transition: 0.4s all;
+  padding: 5px;
+}
+#reset:hover {
+  scale: 1.1;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.605);
+}
+.msg {
+  position: absolute;
+  font-size: 40px;
+  margin-top: 90px;
+  /* scale: 0; */
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: bold;
+  scale: 0;
+  transition: 1s all;
+}
+.openmsg {
+  scale: 1;
+  transition: 1s all;
+}
+
+.cross {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.671);
+  border-radius: 10px;
+  transition: 0.1s all;
+  border: 1px solid black;
+}
+
+.game > .cross:nth-child(10) {
+  top: 60px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h1  */
+.game > .cross:nth-child(11) {
+  top: 160px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h2  */
+.game > .cross:nth-child(12) {
+  top: 266px;
+  left: 15px;
+  animation: extend_horizontal 0.3s 0.1s forwards;
+}
+/* h3  */
+.game > .cross:nth-child(13) {
+  top: 20px;
+  left: 26px;
+  animation: extend_corner1 0.3s 0.1s forwards;
+  transform-origin: top left;
+  rotate: 45deg;
+}
+/* c1  */
+.game > .cross:nth-child(14) {
+  top: 15px;
+  left: 162px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v2  */
+.game > .cross:nth-child(15) {
+  top: 15px;
+  left: 265px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v3  */
+.game > .cross:nth-child(16) {
+  top: 26px;
+  left: 303px;
+  animation: extend_corner2 0.3s 0.1s forwards;
+  transform-origin: top right;
+  rotate: 45deg;
+}
+/* c2  */
+.game > .cross:nth-child(17) {
+  top: 15px;
+  left: 60px;
+  animation: extend_vertical 0.3s 0.1s forwards;
+}
+/* v1 */
+
+@keyframes extend_horizontal {
+  from {
+    width: 10px;
+    height: 10px;
+  }
+  to {
+    scale: 1;
+    width: 302px;
+  }
+}
+@keyframes extend_vertical {
+  from {
+    width: 10px;
+    height: 10px;
+  }
+  to {
+    height: 302px;
+    width: 10px;
+  }
+}
+@keyframes extend_corner1 {
+  from {
+    height: 10px;
+    width: 10px;
+  }
+  to {
+    width: 405px;
+  }
+}
+@keyframes extend_corner2 {
+  from {
+    height: 10px;
+    width: 10px;
+  }
+  to {
+    height: 407px;
+  }
+}
+.play {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.344);
+  border-radius: 10px;
+}
+.game > .play:nth-child(18) {
+  top: 15px;
+  left: 111px;
+  animation: extend_vertical 0.5s 0.1s forwards;
+}
+.game > .play:nth-child(19) {
+  top: 15px;
+  left: 213px;
+  animation: extend_vertical 0.5s 0.1s forwards;
+}
+.game > .play:nth-child(20) {
+  top: 110px;
+  left: 15px;
+  animation: extend_horizontal 0.5s 0.1s forwards;
+}
+.game > .play:nth-child(21) {
+  top: 212px;
+  left: 15px;
+  animation: extend_horizontal 0.5s 0.1s forwards;
+}
